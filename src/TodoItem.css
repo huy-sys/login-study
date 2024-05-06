@@ -1,0 +1,9 @@
+.todo-item {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.todo-item button {
+    margin-left: 10px;
+}
