@@ -7,14 +7,15 @@ function LoginTodo() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+
 
   // Check if user is already logged in
   useEffect(() => {
-    const isLoggedIn = localStorage.getItem("isLoggedIn");
     if (isLoggedIn) {
       navigate("/home");
     }
-  }, [navigate]);
+  }, [navigate, isLoggedIn]);
 
   const handleLogin = async () => {
     try {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Todo } from './inteface'
 import './TodoItem.css'
+import { useNavigate } from "react-router-dom";
 
 interface TodoItemProps {
     todo: Todo;
@@ -11,10 +12,12 @@ interface TodoItemProps {
 function TodoItem({ todo, onDelete, onEdit }: TodoItemProps) {
     const [isEditing, setIsEditing] = useState(false);
     const [editText, setEditText] = useState(todo.text);
-
+    const navigate = useNavigate();
+    
     // Kiểm tra xem có edit hay không
     const handleEdit = () => {
         setIsEditing(true);
+        navigate(`/detail/${todo.id}`);
     };
 
     // Action cancel sẽ set check edit và để state là text hiện tại

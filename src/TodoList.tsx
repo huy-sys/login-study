@@ -9,13 +9,14 @@ function TodoList() {
     const { todos, inputText, handleInputChange, handleAddTodo, handleDeleteTodo, handleEditTodo } = useTodo()
     const navigate = useNavigate();
 
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+
     useEffect(() => {
         // Check if user is logged in
-        const isLoggedIn = localStorage.getItem("isLoggedIn");
         if (!isLoggedIn) {
             navigate("/");
         }
-    }, [navigate]);
+    }, [navigate, isLoggedIn]);
 
     const handleLogout = () => {
         // Clear isLoggedIn from localStorage
